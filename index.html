@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff5fb">
+    <title>Daily To-Do</title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="todo.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <header class="app-header">
+            <div>
+                <p class="eyebrow">YOUR DAY, YOUR WAY</p>
+                <h1>Daily To-Do</h1>
+                <p class="subtitle">A little progress adds up.</p>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+                <span aria-hidden="true">☾</span>
+                <span class="theme-label">Dark mode</span>
+            </button>
+        </header>
+
+        <form class="add-form" id="add-form">
+            <label class="sr-only" for="task-name">Add a task</label>
+            <input id="task-name" type="text" placeholder="What would you like to do?" maxlength="120" required>
+            <button class="add-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+        </form>
+
+        <section class="stats" aria-label="Task summary">
+            <article class="stat-card active-card">
+                <span class="stat-icon" aria-hidden="true">✦</span>
+                <div><p>Active</p><strong id="active-count">0</strong></div>
+            </article>
+            <article class="stat-card completed-card">
+                <span class="stat-icon" aria-hidden="true">✓</span>
+                <div><p>Completed</p><strong id="completed-count">0</strong></div>
+            </article>
+        </section>
+
+        <section class="tasks-section">
+            <div class="section-heading">
+                <h2>Your tasks</h2>
+                <nav class="filters" aria-label="Filter tasks">
+                    <button class="filter-button selected" type="button" data-filter="all">All</button>
+                    <button class="filter-button" type="button" data-filter="active">Active</button>
+                    <button class="filter-button" type="button" data-filter="completed">Completed</button>
+                </nav>
+            </div>
+            <div class="tasks" id="tasks" aria-live="polite"></div>
+        </section>
+
+        <footer>Saved on this device automatically</footer>
+    </main>
+</body>
+</html>
