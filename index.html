@@ -25,7 +25,12 @@
         <form class="add-form" id="add-form">
             <label class="sr-only" for="task-name">Add a task</label>
             <input id="task-name" type="text" placeholder="What would you like to do?" maxlength="120" required>
+            <div class="schedule-fields">
+                <label for="task-date">Date <input id="task-date" type="date"></label>
+                <label for="task-time">Time <input id="task-time" type="time"></label>
+            </div>
             <button class="add-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+            <button class="cancel-button" id="cancel-edit" type="button" hidden>Cancel</button>
         </form>
 
         <section class="stats" aria-label="Task summary">

@@ -127,14 +127,15 @@ h1 {
 }
 
 .add-form {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 10px;
     margin: 30px 0 22px;
 }
 
-.add-form input {
+.add-form > input {
     min-width: 0;
-    flex: 1;
+    grid-column: 1 / -1;
     padding: 14px 16px;
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -149,6 +150,37 @@ h1 {
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent);
 }
 
+.schedule-fields {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.schedule-fields label {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.schedule-fields input {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.schedule-fields input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
 .add-button {
     padding: 12px 18px;
     border: 0;
@@ -158,6 +190,20 @@ h1 {
     font-weight: 700;
     cursor: pointer;
     transition: transform 180ms ease, filter 180ms ease;
+}
+
+.cancel-button {
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cancel-button[hidden] {
+    display: none;
 }
 
 .add-button:hover {
@@ -277,6 +323,14 @@ h1 {
     overflow-wrap: anywhere;
 }
 
+.task-schedule {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
 .task-row.is-completed .task-text {
     color: var(--muted);
     text-decoration: line-through;
@@ -353,11 +407,17 @@ footer {
     }
 
     .add-form {
-        flex-direction: column;
+        grid-template-columns: 1fr 1fr;
     }
 
     .add-button {
+        grid-column: 1 / -1;
         min-height: 46px;
+    }
+
+    .cancel-button {
+        grid-column: 1 / -1;
+        min-height: 44px;
     }
 
     .section-heading {
@@ -376,6 +436,11 @@ footer {
     .task-row {
         gap: 8px;
         padding: 11px;
+    }
+
+    .task-schedule {
+        white-space: normal;
+        text-align: right;
     }
 }
 
